@@ -15,5 +15,8 @@ namespace MinecraftServerScanner.Library.Json
 
         [JsonProperty(PropertyName = "description")]
         public Chat Description { get; set; }
+
+        [JsonProperty(PropertyName = "modInfo")]
+        public ModInfo ModInfo { get; set; }
     }
 }

@@ -1,4 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using MinecraftServerScanner.Library.Implementations;
+using MinecraftServerScanner.Library.Interfaces;
+using MinecraftServerScanner.Library.Json;
 using MinecraftServerScanner.Library.Utilities;
 using MinecraftServerScanner.Server.Enums;
 using MinecraftServerScanner.Server.Models;
@@ -64,10 +67,24 @@ namespace MinecraftServerScanner.Server.Controllers
         /// Mark a specific scannable network block as copmlete
         /// </summary>
         /// <returns></returns>
-        [HttpGet]
+        [HttpPost]
         [Route("{id}/complete")]
-        public JsonResult Complete(Int32 id)
+        public JsonResult Complete(Int32 id, [FromBody] Library.Implementations.MinecraftServer[] servers)
         {
+            // Store each input server
+            foreach(Library.Implementations.MinecraftServer server in servers)
+            {
+                _db.MinecraftServers.Add(new Models.MinecraftServer()
+                {
+                    Host = server.Host,
+                    Port = server.Port,
+                    Data = server.Data,
+                    Online = server.Online,
+                    LastOnline = (server.Online ? DateTime.Now : DateTime.MinValue),
+                    Scanned = DateTime.Now
+                });
+            }
+
             var block = _db.ScannableNetworkBlocks.Where(snb => snb.Id == id).FirstOrDefault();
 
             // Mark the blocks state as complete
@@ -77,9 +94,8 @@ namespace MinecraftServerScanner.Server.Controllers
             // save the block
             _db.SaveChanges();
 
-            // Assign a new block to the client
-            return this.Assign();
-
+            // Tell the client the block is not complete
+            return Json(block);
         }
 
         /// <summary>
@@ -90,8 +106,8 @@ namespace MinecraftServerScanner.Server.Controllers
         {
             lock (_lock)
             {
-                var reservedList = _db.ReservedNetworkBlocks.Select(rnb => rnb.Network);
-                var nextCidr = IPNetwork.Parse(_db.ScannableNetworkBlocks.LastOrDefault()?.CIDR ?? "0.0.0.0/21");
+                var reservedList = _db.ReservedNetworkBlocks.Select(rnb => rnb.Network).ToArray();
+                var nextCidr = IPNetwork.Parse(_db.ScannableNetworkBlocks.LastOrDefault()?.CIDR ?? "0.0.0.0/20");
                 bool good;
 
                 do

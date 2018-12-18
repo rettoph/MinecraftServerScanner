@@ -17,7 +17,8 @@ namespace MinecraftServerScanner.Library
 
         private BatchPinger(IPNetwork network, Int16 port, Int32 threads)
         {
-            Console.WriteLine("Starting batch complete.");
+            Console.ForegroundColor = ConsoleColor.Magenta;
+            Console.WriteLine($"Starting batch {network} with port {port}...");
 
             _network = network;
             _ips = _network.ListIPAddress();
@@ -25,8 +26,8 @@ namespace MinecraftServerScanner.Library
             _complete = new CountdownEvent((Int32)_ips.Count);
             this.Pings = new Pinger[(Int32)_ips.Count];
 
-            //ThreadPool.SetMinThreads(threads, threads);
-            //ThreadPool.SetMaxThreads(threads, threads);
+            ThreadPool.SetMinThreads(threads, threads);
+            ThreadPool.SetMaxThreads(threads, threads);
 
             // Queue up Pinger creation for each ip in the network
             for (Int32 i= 0; i < _ips.Count; i++)
@@ -35,6 +36,7 @@ namespace MinecraftServerScanner.Library
             // Wait for the countdown
             _complete.Wait();
 
+            Console.ForegroundColor = ConsoleColor.Magenta;
             Console.WriteLine("Batch complete.");
         }
 
@@ -49,7 +51,7 @@ namespace MinecraftServerScanner.Library
 
         public static Pinger[] Ping(IPNetwork network, Int16 port)
         {
-            return new BatchPinger(network, port, 1).Pings;
+            return new BatchPinger(network, port, 255).Pings;
         }
 
         public static Pinger[] Ping(String network, Int16 port)

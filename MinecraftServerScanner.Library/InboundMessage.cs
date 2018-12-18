@@ -40,14 +40,20 @@ namespace MinecraftServerScanner.Library
             //stream.Read(this.Buffer, 0, this.Length);
             Int32 index = 0;
             List<Byte> _temp = new List<Byte>();
-            while (index < this.Length)
+
+            while (_temp.Count < this.Length && index < this.Length * 2)
             {
                 if (stream.DataAvailable)
                     _temp.Add((Byte)stream.ReadByte());
                 else
-                    Thread.Sleep(100);
+                    Thread.Sleep(1);
 
                 index++;
+            }
+
+            if(_temp.Count < this.Length)
+            {
+                throw new Exception("Not all data recieved!");
             }
 
             this.Buffer = _temp.ToArray();
@@ -64,10 +70,15 @@ namespace MinecraftServerScanner.Library
 
         public byte[] Read(int length)
         {
-            var data = new byte[length];
-            Array.Copy(this.Buffer, this.Offset, data, 0, length);
-            this.Offset += length;
-            return data;
+            if (this.Buffer.Length >= length)
+            {
+                var data = new byte[length];
+                Array.Copy(this.Buffer, this.Offset, data, 0, length);
+                this.Offset += length;
+                return data;
+            }
+
+            throw new IOException("Buffer length too short!");
         }
 
         public int ReadVarInt()

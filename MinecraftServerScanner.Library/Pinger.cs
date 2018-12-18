@@ -1,4 +1,7 @@
-﻿using MinecraftServerScanner.Library.Messages;
+﻿using MinecraftServerScanner.Library.Implementations;
+using MinecraftServerScanner.Library.Interfaces;
+using MinecraftServerScanner.Library.Json;
+using MinecraftServerScanner.Library.Messages;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -15,24 +18,25 @@ namespace MinecraftServerScanner.Library
     /// an input host & port, and return the
     /// minecraft response body
     /// </summary>
-    public class Pinger
+    public class Pinger : MinecraftServer
     {
         public static TimeSpan Timeout;
+        private static Object _lock;
 
         private TcpClient _client;
         private NetworkStream _stream;
-        private String _host;
-        private Int16 _port;
 
-        public HandshakeResponseMessage Response { get; private set; }
+        private HandshakeResponseMessage _response;
+
 
         private Pinger(String host, Int16 port)
         {
-            Console.WriteLine($"Pinging {host}:{port}");
-
-            _host = host;
-            _port = port;
+            this.Host = host;
+            this.Port = port;
+            this.Online = false;
             _client = new TcpClient();
+            _client.ReceiveTimeout = 1000;
+            _client.SendTimeout = 1000;
 
             var res = _client.BeginConnect(host, port, null, null);
             var suc = res.AsyncWaitHandle.WaitOne(Pinger.Timeout);
@@ -40,15 +44,33 @@ namespace MinecraftServerScanner.Library
 
             if (suc)
             { // Only do anything if a server is found at that ip
-                _stream = _client.GetStream();
+                try
+                {
+                    _stream = _client.GetStream();
 
-                this.Handshake();
-                this.Request();
+                    this.Handshake();
+                    this.Request();
 
-                this.Response = new HandshakeResponseMessage(_stream);
+                    _response = new HandshakeResponseMessage(_stream);
+                    this.Data = _response.Data;
+                    this.Online = true;
 
-                // Close unneeded assets
-                _stream.Close();
+                    // Close unneeded assets
+                    _stream.Close();
+
+                    Console.ForegroundColor = ConsoleColor.Green;
+                    Console.WriteLine($"Data {host}:{port}");
+                }
+                catch (Exception e)
+                {
+                    lock (_lock)
+                    {
+                        Console.ForegroundColor = ConsoleColor.Red;
+                        Console.WriteLine($"Server {host}:{port} responded with malformed data.");
+                        Console.ForegroundColor = ConsoleColor.White;
+                        Console.WriteLine($"{e.GetType()}:{e.Message}");
+                    }
+                }
             }
 
             // Close unneeded assets
@@ -63,8 +85,8 @@ namespace MinecraftServerScanner.Library
         {
             var message = new OutboundMessage(0x00);
             message.WriteVarInt(1);
-            message.WriteString(_host);
-            message.WriteShort(_port);
+            message.WriteString(Host);
+            message.WriteShort(Port);
             message.WriteVarInt(1);
             this.SendMessage(message);
         }
@@ -89,12 +111,13 @@ namespace MinecraftServerScanner.Library
 
         static Pinger()
         {
-            Pinger.Timeout = TimeSpan.FromMilliseconds(75);
+            Pinger.Timeout = TimeSpan.FromMilliseconds(500);
+            _lock = new object();
         }
 
-        public static HandshakeResponseMessage Ping(String host, Int16 port)
+        public static HandshakeResponse Ping(String host, Int16 port)
         {
-            return Pinger.Create(host, port).Response;
+            return Pinger.Create(host, port).Data;
         }
 
         public static Pinger Create(String host, Int16 port)
