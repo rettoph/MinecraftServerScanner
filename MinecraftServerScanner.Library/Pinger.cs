@@ -38,11 +38,9 @@ namespace MinecraftServerScanner.Library
             _client.ReceiveTimeout = 1000;
             _client.SendTimeout = 1000;
 
-            var res = _client.BeginConnect(host, port, null, null);
-            var suc = res.AsyncWaitHandle.WaitOne(Pinger.Timeout);
 
 
-            if (_client.Connected)
+            if (!(!_client.ConnectAsync(host, port).Wait(Timeout)))
             { // Only do anything if a server is found at that ip
                 try
                 {
