@@ -19,6 +19,7 @@ namespace MinecraftServerScanner.Server
 
         public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
             WebHost.CreateDefaultBuilder(args)
+            .UseUrls("http://0.0.0.0:" + (args.Length == 0 ? "5000" : args[0]))
                 .UseStartup<Startup>();
     }
 }
