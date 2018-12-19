@@ -9,6 +9,8 @@ namespace MinecraftServerScanner.Library
 {
     public class BatchPinger
     {
+        public static Int32 Threads = 255;
+
         private IPNetwork _network;
         private Int16 _port;
         private IPAddressCollection _ips;
@@ -51,7 +53,7 @@ namespace MinecraftServerScanner.Library
 
         public static Pinger[] Ping(IPNetwork network, Int16 port)
         {
-            return new BatchPinger(network, port, 255).Pings;
+            return new BatchPinger(network, port, BatchPinger.Threads).Pings;
         }
 
         public static Pinger[] Ping(String network, Int16 port)

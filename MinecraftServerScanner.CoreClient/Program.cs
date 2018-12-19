@@ -1,21 +1,14 @@
 ﻿using MinecraftServerScanner.Library;
-using MinecraftServerScanner.Library.Implementations;
 using MinecraftServerScanner.Library.Interfaces;
-using MinecraftServerScanner.Library.Json;
-using MinecraftServerScanner.Library.Utilities;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
-using System.Collections.Specialized;
 using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Net;
-using System.Text;
-using System.Threading.Tasks;
-using System.Web;
 
-namespace MinecraftServerScanner.Client
+namespace MinecraftServerScanner.CoreClient
 {
     class Program
     {
@@ -30,7 +23,7 @@ namespace MinecraftServerScanner.Client
 
         static void Main(string[] args)
         {
-            _baseUri = "http://35.227.76.174/api/v1";
+            _baseUri = "http://rettoph.io/api/v1";
             BatchPinger.Threads = args.Length == 0 ? 512 : Int32.Parse(args[0]);
 
             Stopwatch _sw = new Stopwatch();
@@ -86,8 +79,8 @@ namespace MinecraftServerScanner.Client
 
             using (HttpWebResponse response = (HttpWebResponse)request.GetResponse())
                 using (Stream stream = response.GetResponseStream())
-                    using (StreamReader reader = new StreamReader(stream))
-                        return reader.ReadToEnd();
+                using (StreamReader reader = new StreamReader(stream))
+                    return reader.ReadToEnd();
         }
 
         /// <summary>
@@ -121,7 +114,7 @@ namespace MinecraftServerScanner.Client
             using (HttpWebResponse response = (HttpWebResponse)request.GetResponse())
                 using (Stream stream = response.GetResponseStream())
                     using (StreamReader reader = new StreamReader(stream))
-                        test =  reader.ReadToEnd();
+                        test = reader.ReadToEnd();
 
             return test;
         }
