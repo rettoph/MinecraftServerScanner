@@ -42,7 +42,7 @@ namespace MinecraftServerScanner.Library
             var suc = res.AsyncWaitHandle.WaitOne(Pinger.Timeout);
 
 
-            if (suc)
+            if (_client.Connected)
             { // Only do anything if a server is found at that ip
                 try
                 {
