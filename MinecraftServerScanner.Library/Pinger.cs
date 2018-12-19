@@ -38,12 +38,15 @@ namespace MinecraftServerScanner.Library
             _client.ReceiveTimeout = 1000;
             _client.SendTimeout = 1000;
 
+            //_client.Client.SetSocketOption(SocketOptionLevel.Socket, SocketOptionName.ReuseAddress, true);
+            //_client.Client.ExclusiveAddressUse = false;
+            //_client.ExclusiveAddressUse = false;
 
+            try
+            {
+                if (!(!_client.ConnectAsync(host, port).Wait(Timeout)))
+                { // Only do anything if a server is found at that ip
 
-            if (!(!_client.ConnectAsync(host, port).Wait(Timeout)))
-            { // Only do anything if a server is found at that ip
-                try
-                {
                     _stream = _client.GetStream();
 
                     this.Handshake();
@@ -59,15 +62,16 @@ namespace MinecraftServerScanner.Library
                     Console.ForegroundColor = ConsoleColor.Green;
                     Console.WriteLine($"Data {host}:{port}");
                 }
-                catch (Exception e)
+
+            }
+            catch (Exception e)
+            {
+                lock (_lock)
                 {
-                    lock (_lock)
-                    {
-                        Console.ForegroundColor = ConsoleColor.Red;
-                        Console.WriteLine($"Server {host}:{port} responded with malformed data.");
-                        Console.ForegroundColor = ConsoleColor.White;
-                        Console.WriteLine($"{e.GetType()}:{e.Message}");
-                    }
+                    Console.ForegroundColor = ConsoleColor.Red;
+                    Console.WriteLine($"Server {host}:{port} responded with malformed data.");
+                    Console.ForegroundColor = ConsoleColor.White;
+                    Console.WriteLine($"{e.GetType()}:{e.Message}");
                 }
             }
 
