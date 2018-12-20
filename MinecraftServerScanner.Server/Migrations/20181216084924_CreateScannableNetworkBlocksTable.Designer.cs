@@ -8,7 +8,7 @@ using MinecraftServerScanner.Server;
 
 namespace MinecraftServerScanner.Server.Migrations
 {
-    [DbContext(typeof(MincraftContext))]
+    [DbContext(typeof(MinecraftContext))]
     [Migration("20181216084924_CreateScannableNetworkBlocksTable")]
     partial class CreateScannableNetworkBlocksTable
     {

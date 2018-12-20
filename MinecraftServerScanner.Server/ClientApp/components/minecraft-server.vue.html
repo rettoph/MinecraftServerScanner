@@ -1,12 +1,25 @@
 ﻿<template>
-    <h1>Hi!</h1>
+    <div class="server">
+        <div :class="[ (data.online ? 'online' : 'offline'), 'status' ]"></div>
+        <img class="icon" width="64px" :src="data.icon == null ? 'https://i.pinimg.com/originals/27/bb/f7/27bbf79998317ed46ebab78e8d936172.png' : data.icon" />
+        <div class="meta">
+            <span class="player-count">Version: {{data.data.version.name}}</span><br />
+            <span class="player-count">Players: {{data.data.players.online}}/{{data.data.players.max}}</span><br />
+            <span v-if="data.data.modInfo != null" class="mod-count">Mods: {{data.data.modInfo.modList.length}}</span>
+        </div>
+
+        <span class="address">{{data.host}}:{{data.port}}</span><br />
+        <div class="description">
+            <chat v-bind:chat="data.data.description"></chat>
+        </div>
+    </div>
 </template>
 
 <script>
     export default {
         props: {
             data: {
-                type: "Object",
+                type: Object,
                 required: true
             }
         }

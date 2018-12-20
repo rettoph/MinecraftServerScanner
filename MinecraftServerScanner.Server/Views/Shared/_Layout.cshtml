@@ -3,12 +3,25 @@
 <html>
     <head>
         <title>@ViewData["Title"]</title>
+
+        <link rel="stylesheet" media="screen" href="https://fontlibrary.org/face/minecraftia" type="text/css"/>
+        <link rel="stylesheet" type="text/css" href="~/css/site.css">
     </head>
 
     <body>
         <div id="wrapper">
             <div id="app">
-                @RenderBody()
+                <div id="header">
+                    <h1>@ViewData["Title"]</h1>
+                </div>
+
+                <div id="content">
+                    @RenderBody()
+                </div>
+
+                <div id="footer">
+                </div>
+                
             </div>
         </div>
 

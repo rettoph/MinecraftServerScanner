@@ -1,0 +1,69 @@
+﻿<template>
+    <div class="server-list-container" v-on:scroll="handleScroll">
+        <minecraft-server
+            v-for="server in servers"
+            v-bind:data="server"></minecraft-server>
+    </div>
+</template>
+
+<script>
+    export default {
+        props: {
+            page: {
+                type: Number,
+                required: true
+            },
+            size: {
+                type: Number,
+                default: 50
+            }
+        },
+        data() {
+            return {
+                currentPage: this.page,
+                servers: [],
+                next: true,
+                prev: true,
+                loading: false
+            }
+        },
+        mounted() {
+            this.getPageData(0);
+        },
+        methods: {
+            getPageData(inputPage) {
+                if (!this.loading) {
+                    this.loading = true;
+                    fetch(`/api/v1/minecraft-servers?page=${inputPage}&size=${this.size}`)
+                        .then(function (response) {
+                            return response.json();
+                        })
+                        .then(this.handlePageData);
+                }
+            },
+            handlePageData(data) {
+                this.servers = this.servers.concat(data.items);
+
+                this.currentPage = data.page;
+                this.prev = data.page > 0;
+                this.next = data.maxSize == data.size;
+                this.loading = false;
+            },
+            /*
+             * https://stackoverflow.com/questions/2481350/how-to-get-scrollbar-position-with-javascript
+             */
+            handleScroll(event) {
+                var element = event.target;
+
+                // will be the position.
+                var a = element.scrollTop;
+                // will be the maximum value for scrollTop.
+                var b = element.scrollHeight - element.clientHeight;
+
+                if (b >= 1000 && b - a <= 1000 && this.next) {
+                    this.getPageData(this.currentPage + 1);
+                }
+            }
+        }
+    }
+</script>

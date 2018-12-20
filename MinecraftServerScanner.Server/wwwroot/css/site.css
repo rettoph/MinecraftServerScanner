@@ -1,37 +1,173 @@
-﻿/* Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification\ 
-for details on configuring this project to bundle and minify static web assets. */
+﻿* {
+    padding: 0;
+    margin: 0;
+    font-family: 'MinecraftiaRegular';
+    font-weight: normal;
+    font-style: normal;
+}
+
 body {
-    padding-top: 50px;
-    padding-bottom: 20px;
+    background-image: url('/images/backgorund-dark.png');
+    color: white;
 }
 
-/* Wrapping element */
-/* Set some basic padding to keep content from hitting the edges */
-.body-content {
-    padding-left: 15px;
-    padding-right: 15px;
+#header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 128px;
+    width: 100vw;
+    background-image: url('/images/backgorund-light.png');
+    box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+    line-height: 128px;
+    text-align: center;
 }
 
-/* Carousel */
-.carousel-caption p {
+#footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    height: 64px;
+    width: 100vw;
+    background-image: url('/images/backgorund-light.png');
+    box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+    text-align: center;
+}
+
+#content {
+    padding: 160px 64px 96px;
+}
+
+.server-list-container {
+    max-width: 640px;
+    margin: -32px auto;
+    padding: 0 32px 32px 32px;
+    height: calc(100vh - 224px);
+    overflow: auto;
+}
+
+.server {
+    color: white;
+    min-height: 64px;
+    margin-top: 32px;
+}
+
+.address {
+    font-weight: bold;
     font-size: 20px;
-    line-height: 1.4;
 }
 
-/* Make .svg files in the carousel display properly in older browsers */
-.carousel-inner .item img[src$=".svg"] {
-    width: 100%;
+.icon {
+    float: left;
+    margin-right: 15px;
 }
 
-/* QR code generator */
-#qrCode {
-    margin: 15px;
+.chat {
+    display: inline-block;
+    text-align: center;
+    max-width: 250px;
+    padding: 2px;
 }
 
-/* Hide/rearrange for smaller screens */
-@media screen and (max-width: 767px) {
-    /* Hide captions */
-    .carousel-caption {
-        display: none;
-    }
+.server .description {
+    text-align: center;
+}
+
+.chat .bold {
+    font-weight: bold;
+}
+
+.chat .italic {
+    font-style:initial;
+}
+
+.chat .underline {
+    text-decoration: underline;
+}
+
+.chat .strikethrough {
+    text-decoration: line-through;
+}
+
+.chat .black {
+    color: black;
+}
+
+.chat .dark_blue {
+    color: #0000aa;
+}
+
+.chat .dark_green {
+    color: #00aa00;
+}
+
+.chat .dark_aqua {
+    color: #00aaaa;
+}
+
+.chat .dark_red {
+    color: #aa0000;
+}
+.chat .dark_purple {
+    color: #aa00aa;
+}
+
+.chat .gold {
+    color: #ffaa00;
+}
+
+.chat .gray {
+    color: #aaaaaa;
+}
+
+.chat .dark_gray {
+    color: #555555;
+}
+
+.chat .blue {
+    color: #5555ff;
+}
+
+.chat .green {
+    color: #55ff55;
+}
+
+.chat .aqua {
+    color: #55ffff;
+}
+
+.chat .red {
+    color: #ff5555;
+}
+
+.chat .light_purple {
+    color: #ff55ff;
+}
+
+.chat .yellow {
+    color: #ffff55;
+}
+
+.chat .white {
+    color: #ffffff;
+}
+
+.status {
+    float: left;
+    width: 13px;
+    height: 13px;
+    background: green;
+    border-radius: 50%;
+    margin-right: 16px;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+}
+
+.status.offline {
+    background: red;
+}
+
+.server .meta {
+    float: right;
+    text-align: right;
+    font-size: 10px;
 }

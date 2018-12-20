@@ -63,7 +63,7 @@
 /******/
 /******/ 	var hotApplyOnUpdate = true;
 /******/ 	// eslint-disable-next-line no-unused-vars
-/******/ 	var hotCurrentHash = "97b3ce9f53ee55eccddd";
+/******/ 	var hotCurrentHash = "1f8a09629df555fa50af";
 /******/ 	var hotRequestTimeout = 10000;
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentChildModule;
@@ -800,7 +800,43 @@
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-eval("﻿const Vue = __webpack_require__(/*! vue */ \"./node_modules/vue/dist/vue.js\");\r\n\r\nVue.component('minecraft-server', __webpack_require__(/*! ./components/minecraft-server.vue.html */ \"./ClientApp/components/minecraft-server.vue.html\").default);\r\n\r\nnew Vue({\r\n    el: \"#app\"\r\n})\n\n//# sourceURL=webpack:///./ClientApp/app.js?");
+eval("﻿const Vue = __webpack_require__(/*! vue */ \"./node_modules/vue/dist/vue.js\");\r\n\r\nVue.component('minecraft-server', __webpack_require__(/*! ./components/minecraft-server.vue.html */ \"./ClientApp/components/minecraft-server.vue.html\").default);\r\nVue.component('minecraft-servers', __webpack_require__(/*! ./components/minecraft-servers.vue.html */ \"./ClientApp/components/minecraft-servers.vue.html\").default);\r\nVue.component('chat', __webpack_require__(/*! ./components/chat.vue.html */ \"./ClientApp/components/chat.vue.html\").default);\r\n\r\nnew Vue({\r\n    el: \"#app\"\r\n})\n\n//# sourceURL=webpack:///./ClientApp/app.js?");
+
+/***/ }),
+
+/***/ "./ClientApp/components/chat.vue.html":
+/*!********************************************!*\
+  !*** ./ClientApp/components/chat.vue.html ***!
+  \********************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _chat_vue_html_vue_type_template_id_a65d2c42___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./chat.vue.html?vue&type=template&id=a65d2c42& */ \"./ClientApp/components/chat.vue.html?vue&type=template&id=a65d2c42&\");\n/* harmony import */ var _chat_vue_html_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./chat.vue.html?vue&type=script&lang=js& */ \"./ClientApp/components/chat.vue.html?vue&type=script&lang=js&\");\n/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ \"./node_modules/vue-loader/lib/runtime/componentNormalizer.js\");\n\n\n\n\n\n/* normalize component */\n\nvar component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__[\"default\"])(\n  _chat_vue_html_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__[\"default\"],\n  _chat_vue_html_vue_type_template_id_a65d2c42___WEBPACK_IMPORTED_MODULE_0__[\"render\"],\n  _chat_vue_html_vue_type_template_id_a65d2c42___WEBPACK_IMPORTED_MODULE_0__[\"staticRenderFns\"],\n  false,\n  null,\n  null,\n  null\n  \n)\n\n/* hot reload */\nif (true) {\n  var api = __webpack_require__(/*! ./node_modules/vue-hot-reload-api/dist/index.js */ \"./node_modules/vue-hot-reload-api/dist/index.js\")\n  api.install(__webpack_require__(/*! vue */ \"./node_modules/vue/dist/vue.js\"))\n  if (api.compatible) {\n    module.hot.accept()\n    if (!module.hot.data) {\n      api.createRecord('a65d2c42', component.options)\n    } else {\n      api.reload('a65d2c42', component.options)\n    }\n    module.hot.accept(/*! ./chat.vue.html?vue&type=template&id=a65d2c42& */ \"./ClientApp/components/chat.vue.html?vue&type=template&id=a65d2c42&\", function(__WEBPACK_OUTDATED_DEPENDENCIES__) { /* harmony import */ _chat_vue_html_vue_type_template_id_a65d2c42___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./chat.vue.html?vue&type=template&id=a65d2c42& */ \"./ClientApp/components/chat.vue.html?vue&type=template&id=a65d2c42&\");\n(function () {\n      api.rerender('a65d2c42', {\n        render: _chat_vue_html_vue_type_template_id_a65d2c42___WEBPACK_IMPORTED_MODULE_0__[\"render\"],\n        staticRenderFns: _chat_vue_html_vue_type_template_id_a65d2c42___WEBPACK_IMPORTED_MODULE_0__[\"staticRenderFns\"]\n      })\n    })(__WEBPACK_OUTDATED_DEPENDENCIES__); })\n  }\n}\ncomponent.options.__file = \"ClientApp/components/chat.vue.html\"\n/* harmony default export */ __webpack_exports__[\"default\"] = (component.exports);\n\n//# sourceURL=webpack:///./ClientApp/components/chat.vue.html?");
+
+/***/ }),
+
+/***/ "./ClientApp/components/chat.vue.html?vue&type=script&lang=js&":
+/*!*********************************************************************!*\
+  !*** ./ClientApp/components/chat.vue.html?vue&type=script&lang=js& ***!
+  \*********************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _node_modules_vue_loader_lib_index_js_vue_loader_options_chat_vue_html_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../node_modules/vue-loader/lib??vue-loader-options!./chat.vue.html?vue&type=script&lang=js& */ \"./node_modules/vue-loader/lib/index.js?!./ClientApp/components/chat.vue.html?vue&type=script&lang=js&\");\n/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__[\"default\"] = (_node_modules_vue_loader_lib_index_js_vue_loader_options_chat_vue_html_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__[\"default\"]); \n\n//# sourceURL=webpack:///./ClientApp/components/chat.vue.html?");
+
+/***/ }),
+
+/***/ "./ClientApp/components/chat.vue.html?vue&type=template&id=a65d2c42&":
+/*!***************************************************************************!*\
+  !*** ./ClientApp/components/chat.vue.html?vue&type=template&id=a65d2c42& ***!
+  \***************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_chat_vue_html_vue_type_template_id_a65d2c42___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../node_modules/vue-loader/lib??vue-loader-options!./chat.vue.html?vue&type=template&id=a65d2c42& */ \"./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./ClientApp/components/chat.vue.html?vue&type=template&id=a65d2c42&\");\n/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, \"render\", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_chat_vue_html_vue_type_template_id_a65d2c42___WEBPACK_IMPORTED_MODULE_0__[\"render\"]; });\n\n/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, \"staticRenderFns\", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_chat_vue_html_vue_type_template_id_a65d2c42___WEBPACK_IMPORTED_MODULE_0__[\"staticRenderFns\"]; });\n\n\n\n//# sourceURL=webpack:///./ClientApp/components/chat.vue.html?");
 
 /***/ }),
 
@@ -837,6 +873,42 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _nod
 
 "use strict";
 eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_minecraft_server_vue_html_vue_type_template_id_292f7598___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../node_modules/vue-loader/lib??vue-loader-options!./minecraft-server.vue.html?vue&type=template&id=292f7598& */ \"./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./ClientApp/components/minecraft-server.vue.html?vue&type=template&id=292f7598&\");\n/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, \"render\", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_minecraft_server_vue_html_vue_type_template_id_292f7598___WEBPACK_IMPORTED_MODULE_0__[\"render\"]; });\n\n/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, \"staticRenderFns\", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_minecraft_server_vue_html_vue_type_template_id_292f7598___WEBPACK_IMPORTED_MODULE_0__[\"staticRenderFns\"]; });\n\n\n\n//# sourceURL=webpack:///./ClientApp/components/minecraft-server.vue.html?");
+
+/***/ }),
+
+/***/ "./ClientApp/components/minecraft-servers.vue.html":
+/*!*********************************************************!*\
+  !*** ./ClientApp/components/minecraft-servers.vue.html ***!
+  \*********************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _minecraft_servers_vue_html_vue_type_template_id_91d536ca___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./minecraft-servers.vue.html?vue&type=template&id=91d536ca& */ \"./ClientApp/components/minecraft-servers.vue.html?vue&type=template&id=91d536ca&\");\n/* harmony import */ var _minecraft_servers_vue_html_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./minecraft-servers.vue.html?vue&type=script&lang=js& */ \"./ClientApp/components/minecraft-servers.vue.html?vue&type=script&lang=js&\");\n/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ \"./node_modules/vue-loader/lib/runtime/componentNormalizer.js\");\n\n\n\n\n\n/* normalize component */\n\nvar component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__[\"default\"])(\n  _minecraft_servers_vue_html_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__[\"default\"],\n  _minecraft_servers_vue_html_vue_type_template_id_91d536ca___WEBPACK_IMPORTED_MODULE_0__[\"render\"],\n  _minecraft_servers_vue_html_vue_type_template_id_91d536ca___WEBPACK_IMPORTED_MODULE_0__[\"staticRenderFns\"],\n  false,\n  null,\n  null,\n  null\n  \n)\n\n/* hot reload */\nif (true) {\n  var api = __webpack_require__(/*! ./node_modules/vue-hot-reload-api/dist/index.js */ \"./node_modules/vue-hot-reload-api/dist/index.js\")\n  api.install(__webpack_require__(/*! vue */ \"./node_modules/vue/dist/vue.js\"))\n  if (api.compatible) {\n    module.hot.accept()\n    if (!module.hot.data) {\n      api.createRecord('91d536ca', component.options)\n    } else {\n      api.reload('91d536ca', component.options)\n    }\n    module.hot.accept(/*! ./minecraft-servers.vue.html?vue&type=template&id=91d536ca& */ \"./ClientApp/components/minecraft-servers.vue.html?vue&type=template&id=91d536ca&\", function(__WEBPACK_OUTDATED_DEPENDENCIES__) { /* harmony import */ _minecraft_servers_vue_html_vue_type_template_id_91d536ca___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./minecraft-servers.vue.html?vue&type=template&id=91d536ca& */ \"./ClientApp/components/minecraft-servers.vue.html?vue&type=template&id=91d536ca&\");\n(function () {\n      api.rerender('91d536ca', {\n        render: _minecraft_servers_vue_html_vue_type_template_id_91d536ca___WEBPACK_IMPORTED_MODULE_0__[\"render\"],\n        staticRenderFns: _minecraft_servers_vue_html_vue_type_template_id_91d536ca___WEBPACK_IMPORTED_MODULE_0__[\"staticRenderFns\"]\n      })\n    })(__WEBPACK_OUTDATED_DEPENDENCIES__); })\n  }\n}\ncomponent.options.__file = \"ClientApp/components/minecraft-servers.vue.html\"\n/* harmony default export */ __webpack_exports__[\"default\"] = (component.exports);\n\n//# sourceURL=webpack:///./ClientApp/components/minecraft-servers.vue.html?");
+
+/***/ }),
+
+/***/ "./ClientApp/components/minecraft-servers.vue.html?vue&type=script&lang=js&":
+/*!**********************************************************************************!*\
+  !*** ./ClientApp/components/minecraft-servers.vue.html?vue&type=script&lang=js& ***!
+  \**********************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _node_modules_vue_loader_lib_index_js_vue_loader_options_minecraft_servers_vue_html_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../node_modules/vue-loader/lib??vue-loader-options!./minecraft-servers.vue.html?vue&type=script&lang=js& */ \"./node_modules/vue-loader/lib/index.js?!./ClientApp/components/minecraft-servers.vue.html?vue&type=script&lang=js&\");\n/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__[\"default\"] = (_node_modules_vue_loader_lib_index_js_vue_loader_options_minecraft_servers_vue_html_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__[\"default\"]); \n\n//# sourceURL=webpack:///./ClientApp/components/minecraft-servers.vue.html?");
+
+/***/ }),
+
+/***/ "./ClientApp/components/minecraft-servers.vue.html?vue&type=template&id=91d536ca&":
+/*!****************************************************************************************!*\
+  !*** ./ClientApp/components/minecraft-servers.vue.html?vue&type=template&id=91d536ca& ***!
+  \****************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_minecraft_servers_vue_html_vue_type_template_id_91d536ca___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../node_modules/vue-loader/lib??vue-loader-options!./minecraft-servers.vue.html?vue&type=template&id=91d536ca& */ \"./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./ClientApp/components/minecraft-servers.vue.html?vue&type=template&id=91d536ca&\");\n/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, \"render\", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_minecraft_servers_vue_html_vue_type_template_id_91d536ca___WEBPACK_IMPORTED_MODULE_0__[\"render\"]; });\n\n/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, \"staticRenderFns\", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_minecraft_servers_vue_html_vue_type_template_id_91d536ca___WEBPACK_IMPORTED_MODULE_0__[\"staticRenderFns\"]; });\n\n\n\n//# sourceURL=webpack:///./ClientApp/components/minecraft-servers.vue.html?");
 
 /***/ }),
 
@@ -976,6 +1048,18 @@ eval("var Vue // late bind\nvar version\nvar map = Object.create(null)\nif (type
 
 /***/ }),
 
+/***/ "./node_modules/vue-loader/lib/index.js?!./ClientApp/components/chat.vue.html?vue&type=script&lang=js&":
+/*!***********************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib??vue-loader-options!./ClientApp/components/chat.vue.html?vue&type=script&lang=js& ***!
+  \***********************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n\n/* harmony default export */ __webpack_exports__[\"default\"] = ({\n    props: {\n        chat: {\n            type: Object,\n            required: true\n        }\n    }\n});\n\n\n//# sourceURL=webpack:///./ClientApp/components/chat.vue.html?./node_modules/vue-loader/lib??vue-loader-options");
+
+/***/ }),
+
 /***/ "./node_modules/vue-loader/lib/index.js?!./ClientApp/components/minecraft-server.vue.html?vue&type=script&lang=js&":
 /*!***********************************************************************************************************************************!*\
   !*** ./node_modules/vue-loader/lib??vue-loader-options!./ClientApp/components/minecraft-server.vue.html?vue&type=script&lang=js& ***!
@@ -984,7 +1068,31 @@ eval("var Vue // late bind\nvar version\nvar map = Object.create(null)\nif (type
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n//\n//\n//\n//\n\n/* harmony default export */ __webpack_exports__[\"default\"] = ({\n    props: {\n        data: {\n            type: \"Object\",\n            required: true\n        }\n    }\n});\n\n\n//# sourceURL=webpack:///./ClientApp/components/minecraft-server.vue.html?./node_modules/vue-loader/lib??vue-loader-options");
+eval("__webpack_require__.r(__webpack_exports__);\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n//\n\n/* harmony default export */ __webpack_exports__[\"default\"] = ({\n    props: {\n        data: {\n            type: Object,\n            required: true\n        }\n    }\n});\n\n\n//# sourceURL=webpack:///./ClientApp/components/minecraft-server.vue.html?./node_modules/vue-loader/lib??vue-loader-options");
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/index.js?!./ClientApp/components/minecraft-servers.vue.html?vue&type=script&lang=js&":
+/*!************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib??vue-loader-options!./ClientApp/components/minecraft-servers.vue.html?vue&type=script&lang=js& ***!
+  \************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n//\n//\n//\n//\n//\n//\n//\n//\n\n/* harmony default export */ __webpack_exports__[\"default\"] = ({\n    props: {\n        page: {\n            type: Number,\n            required: true\n        },\n        size: {\n            type: Number,\n            default: 50\n        }\n    },\n    data() {\n        return {\n            currentPage: this.page,\n            servers: [],\n            next: true,\n            prev: true,\n            loading: false\n        }\n    },\n    mounted() {\n        this.getPageData(0);\n    },\n    methods: {\n        getPageData(inputPage) {\n            if (!this.loading) {\n                this.loading = true;\n                fetch(`/api/v1/minecraft-servers?page=${inputPage}&size=${this.size}`)\n                    .then(function (response) {\n                        return response.json();\n                    })\n                    .then(this.handlePageData);\n            }\n        },\n        handlePageData(data) {\n            this.servers = this.servers.concat(data.items);\n\n            this.currentPage = data.page;\n            this.prev = data.page > 0;\n            this.next = data.maxSize == data.size;\n            this.loading = false;\n        },\n        /*\n         * https://stackoverflow.com/questions/2481350/how-to-get-scrollbar-position-with-javascript\n         */\n        handleScroll(event) {\n            var element = event.target;\n\n            // will be the position.\n            var a = element.scrollTop;\n            // will be the maximum value for scrollTop.\n            var b = element.scrollHeight - element.clientHeight;\n\n            if (b >= 1000 && b - a <= 1000 && this.next) {\n                this.getPageData(this.currentPage + 1);\n            }\n        }\n    }\n});\n\n\n//# sourceURL=webpack:///./ClientApp/components/minecraft-servers.vue.html?./node_modules/vue-loader/lib??vue-loader-options");
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./ClientApp/components/chat.vue.html?vue&type=template&id=a65d2c42&":
+/*!*********************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./ClientApp/components/chat.vue.html?vue&type=template&id=a65d2c42& ***!
+  \*********************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"render\", function() { return render; });\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"staticRenderFns\", function() { return staticRenderFns; });\nvar render = function() {\n  var _vm = this\n  var _h = _vm.$createElement\n  var _c = _vm._self._c || _h\n  return _c(\n    \"span\",\n    { staticClass: \"chat\" },\n    [\n      _c(\n        \"span\",\n        {\n          class: {\n            bold: _vm.chat.bold,\n            italic: _vm.chat.italic,\n            underline: _vm.chat.underline,\n            strikethrough: _vm.chat.strikethrough,\n            obfuscated: _vm.chat.obfuscated\n          }\n        },\n        [\n          _c(\"span\", { class: [_vm.chat.color] }, [\n            _vm._v(_vm._s(_vm.chat.text))\n          ])\n        ]\n      ),\n      _vm._v(\" \"),\n      _vm._l(_vm.chat.extra, function(child) {\n        return _c(\"chat\", { attrs: { chat: child } })\n      })\n    ],\n    2\n  )\n}\nvar staticRenderFns = []\nrender._withStripped = true\n\n\n\n//# sourceURL=webpack:///./ClientApp/components/chat.vue.html?./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options");
 
 /***/ }),
 
@@ -996,7 +1104,19 @@ eval("__webpack_require__.r(__webpack_exports__);\n//\n//\n//\n//\n\n/* harmony 
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"render\", function() { return render; });\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"staticRenderFns\", function() { return staticRenderFns; });\nvar render = function() {\n  var _vm = this\n  var _h = _vm.$createElement\n  var _c = _vm._self._c || _h\n  return _c(\"h1\", [_vm._v(\"Hi!\")])\n}\nvar staticRenderFns = []\nrender._withStripped = true\n\n\n\n//# sourceURL=webpack:///./ClientApp/components/minecraft-server.vue.html?./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"render\", function() { return render; });\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"staticRenderFns\", function() { return staticRenderFns; });\nvar render = function() {\n  var _vm = this\n  var _h = _vm.$createElement\n  var _c = _vm._self._c || _h\n  return _c(\"div\", { staticClass: \"server\" }, [\n    _c(\"div\", { class: [_vm.data.online ? \"online\" : \"offline\", \"status\"] }),\n    _vm._v(\" \"),\n    _c(\"img\", {\n      staticClass: \"icon\",\n      attrs: {\n        width: \"64px\",\n        src:\n          _vm.data.icon == null\n            ? \"https://i.pinimg.com/originals/27/bb/f7/27bbf79998317ed46ebab78e8d936172.png\"\n            : _vm.data.icon\n      }\n    }),\n    _vm._v(\" \"),\n    _c(\"div\", { staticClass: \"meta\" }, [\n      _c(\"span\", { staticClass: \"player-count\" }, [\n        _vm._v(\"Version: \" + _vm._s(_vm.data.data.version.name))\n      ]),\n      _c(\"br\"),\n      _vm._v(\" \"),\n      _c(\"span\", { staticClass: \"player-count\" }, [\n        _vm._v(\n          \"Players: \" +\n            _vm._s(_vm.data.data.players.online) +\n            \"/\" +\n            _vm._s(_vm.data.data.players.max)\n        )\n      ]),\n      _c(\"br\"),\n      _vm._v(\" \"),\n      _vm.data.data.modInfo != null\n        ? _c(\"span\", { staticClass: \"mod-count\" }, [\n            _vm._v(\"Mods: \" + _vm._s(_vm.data.data.modInfo.modList.length))\n          ])\n        : _vm._e()\n    ]),\n    _vm._v(\" \"),\n    _c(\"span\", { staticClass: \"address\" }, [\n      _vm._v(_vm._s(_vm.data.host) + \":\" + _vm._s(_vm.data.port))\n    ]),\n    _c(\"br\"),\n    _vm._v(\" \"),\n    _c(\n      \"div\",\n      { staticClass: \"description\" },\n      [_c(\"chat\", { attrs: { chat: _vm.data.data.description } })],\n      1\n    )\n  ])\n}\nvar staticRenderFns = []\nrender._withStripped = true\n\n\n\n//# sourceURL=webpack:///./ClientApp/components/minecraft-server.vue.html?./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options");
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./ClientApp/components/minecraft-servers.vue.html?vue&type=template&id=91d536ca&":
+/*!**********************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./ClientApp/components/minecraft-servers.vue.html?vue&type=template&id=91d536ca& ***!
+  \**********************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"render\", function() { return render; });\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"staticRenderFns\", function() { return staticRenderFns; });\nvar render = function() {\n  var _vm = this\n  var _h = _vm.$createElement\n  var _c = _vm._self._c || _h\n  return _c(\n    \"div\",\n    { staticClass: \"server-list-container\", on: { scroll: _vm.handleScroll } },\n    _vm._l(_vm.servers, function(server) {\n      return _c(\"minecraft-server\", { attrs: { data: server } })\n    }),\n    1\n  )\n}\nvar staticRenderFns = []\nrender._withStripped = true\n\n\n\n//# sourceURL=webpack:///./ClientApp/components/minecraft-servers.vue.html?./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options");
 
 /***/ }),
 

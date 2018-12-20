@@ -11,6 +11,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.EntityFrameworkCore;
 using MinecraftServerScanner.Server;
 using Microsoft.AspNetCore.SpaServices.Webpack;
+using MinecraftServerScanner.Server.HostedServices;
 
 namespace MinecraftServerScanner.Server
 {
@@ -33,12 +34,12 @@ namespace MinecraftServerScanner.Server
                 options.MinimumSameSitePolicy = SameSiteMode.None;
             });
 
-            //services.AddDbContext()
+            services.AddHostedService<RescanHostedService>();
 
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
 
-            services.AddDbContext<MincraftContext>(options =>
+            services.AddDbContext<MinecraftContext>(options =>
                     options.UseMySql(Configuration.GetConnectionString("DefaultConnection")));
         }
 

@@ -1,0 +1,20 @@
+﻿<template>
+    <span class="chat">
+        <span :class="{ bold: chat.bold, italic: chat.italic, underline: chat.underline, strikethrough: chat.strikethrough, obfuscated: chat.obfuscated }">
+            <span :class="[ chat.color ]">{{chat.text}}</span>
+       </span>
+
+        <chat v-for="child in chat.extra" v-bind:chat="child"></chat>
+    </span>
+</template>
+
+<script>
+    export default {
+        props: {
+            chat: {
+                type: Object,
+                required: true
+            }
+        }
+    }
+</script>

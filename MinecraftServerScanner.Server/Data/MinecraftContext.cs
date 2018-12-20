@@ -8,13 +8,13 @@ using MinecraftServerScanner.Server.Models;
 
 namespace MinecraftServerScanner.Server
 {
-    public class MincraftContext : DbContext
+    public class MinecraftContext : DbContext
     {
         public DbSet<ReservedNetworkBlock> ReservedNetworkBlocks { get; set; }
         public DbSet<ScannableNetworkBlock> ScannableNetworkBlocks { get; set; }
         public DbSet<MinecraftServer> MinecraftServers { get; set; }
 
-        public MincraftContext (DbContextOptions<MincraftContext> options)
+        public MinecraftContext (DbContextOptions<MinecraftContext> options)
             : base(options)
         {
         }

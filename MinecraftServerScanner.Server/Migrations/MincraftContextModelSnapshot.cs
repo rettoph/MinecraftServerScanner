@@ -7,7 +7,7 @@ using MinecraftServerScanner.Server;
 
 namespace MinecraftServerScanner.Server.Migrations
 {
-    [DbContext(typeof(MincraftContext))]
+    [DbContext(typeof(MinecraftContext))]
     partial class MincraftContextModelSnapshot : ModelSnapshot
     {
         protected override void BuildModel(ModelBuilder modelBuilder)

@@ -16,10 +16,10 @@ namespace MinecraftServerScanner.Server.Controllers
     [Route("api/v1/scannable-network-blocks")]
     public class ScannableNetworkBlockController : Controller
     {
-        private MincraftContext _db;
+        private MinecraftContext _db;
         private static Object _lock = new object();
 
-        public ScannableNetworkBlockController(MincraftContext db)
+        public ScannableNetworkBlockController(MinecraftContext db)
         {
             _db = db;
         }
@@ -81,7 +81,9 @@ namespace MinecraftServerScanner.Server.Controllers
                     Data = server.Data,
                     Online = server.Online,
                     LastOnline = (server.Online ? DateTime.Now : DateTime.MinValue),
-                    Scanned = DateTime.Now
+                    Scanned = DateTime.Now,
+                    Version = server.Data?.Version.Name,
+                    Icon = server.Data?.Icon
                 });
             }
 

@@ -10,8 +10,8 @@ namespace MinecraftServerScanner.Server.Controllers
 {
     public class HomeController : Controller
     {
-        private MincraftContext _db;
-        public HomeController(MincraftContext db)
+        private MinecraftContext _db;
+        public HomeController(MinecraftContext db)
         {
             _db = db;
         }
