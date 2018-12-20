@@ -1,8 +1,8 @@
 ﻿<template>
     <div class="server-list-container" v-on:scroll="handleScroll">
         <minecraft-server
-            v-for="server in servers"
-            v-bind:data="server"></minecraft-server>
+            v-for="s in servers"
+            v-bind:data="s"></minecraft-server>
     </div>
 </template>
 

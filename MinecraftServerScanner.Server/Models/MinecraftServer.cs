@@ -1,4 +1,5 @@
-﻿using MinecraftServerScanner.Library;
+﻿using Humanizer;
+using MinecraftServerScanner.Library;
 using MinecraftServerScanner.Library.Json;
 using System;
 using System.Collections.Generic;
@@ -17,6 +18,8 @@ namespace MinecraftServerScanner.Server.Models
 
         public String Icon { get; set; }
         public String Version { get; set; }
+        public String Elapsed { get { return DateTime.Now.Subtract(this.Scanned).Humanize(); } }
+        public String LastSeen { get { return DateTime.Now.Subtract(this.LastOnline).Humanize(); } }
 
         public MinecraftServer()
         {

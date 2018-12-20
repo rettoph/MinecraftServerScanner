@@ -15,6 +15,8 @@ namespace MinecraftServerScanner.Server.HostedServices
     {
         private readonly ILogger _logger;
         private IServiceProvider _services;
+        private Timer _timer;
+
         private struct ServerCountdown
         {
             public MinecraftServer Server { get; set; }
@@ -32,6 +34,9 @@ namespace MinecraftServerScanner.Server.HostedServices
         {
             _logger.LogInformation("Rescan Service is starting.");
 
+            _timer = new Timer(DoWork, null, TimeSpan.Zero,
+                TimeSpan.FromSeconds(60));
+
             return Task.CompletedTask;
         }
 
@@ -45,8 +50,8 @@ namespace MinecraftServerScanner.Server.HostedServices
                 
 
                 // Load 100 servers that havent been scanned in at least 5 mintues
-                var servers = db.MinecraftServers.Where(s => s.Version == null)
-                    .Where(s => s.Scanned <= DateTime.Now.AddMinutes(-10))
+                var servers = db.MinecraftServers
+                    .OrderBy(s => s.Scanned)
                     .Take(10);
 
                 // Create a new countdown to wait until the servers are done scanning
@@ -70,6 +75,8 @@ namespace MinecraftServerScanner.Server.HostedServices
         {
             _logger.LogInformation("Rescan Service is stopping.");
 
+            _timer?.Change(Timeout.Infinite, 0);
+
             return Task.CompletedTask;
         }
 
@@ -88,6 +95,7 @@ namespace MinecraftServerScanner.Server.HostedServices
 
         public void Dispose()
         {
+            _timer?.Dispose();
         }
     }
 }

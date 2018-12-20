@@ -1,17 +1,30 @@
 ﻿<template>
-    <div class="server">
-        <div :class="[ (data.online ? 'online' : 'offline'), 'status' ]"></div>
-        <img class="icon" width="64px" :src="data.icon == null ? 'https://i.pinimg.com/originals/27/bb/f7/27bbf79998317ed46ebab78e8d936172.png' : data.icon" />
-        <div class="meta">
-            <span class="player-count">Version: {{data.data.version.name}}</span><br />
-            <span class="player-count">Players: {{data.data.players.online}}/{{data.data.players.max}}</span><br />
-            <span v-if="data.data.modInfo != null" class="mod-count">Mods: {{data.data.modInfo.modList.length}}</span>
+    <div class="server" v-on:click="handleClick">
+        <div class="state server-data-section">
+            <div :class="[ (server.online ? 'online' : 'offline'), 'status', (loading ? 'loading' : '') ]"></div>
+            <div class="icon-container">
+                <img v-if="!loading" class="icon" width="64" :src="server.icon == null ? 'https://i.pinimg.com/originals/27/bb/f7/27bbf79998317ed46ebab78e8d936172.png' : server.icon" />
+                <img v-if="!loading" class="icon-overlay" width="64" src="/images/icon-hover.png" />
+                <div v-if="loading" class="lds-roller"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
+            </div>
         </div>
 
-        <span class="address">{{data.host}}:{{data.port}}</span><br />
-        <div class="description">
-            <chat v-bind:chat="data.data.description"></chat>
+        <div class="overview server-data-section">
+            <span class="address">{{server.host}}:{{server.port}}</span><br />
+            <div class="description">
+                <chat v-bind:chat="server.data.description"></chat>
+            </div>
         </div>
+
+        <div class="meta server-data-section">
+            <span class="scanned">Scanned {{server.elapsed}} ago</span><br />
+            <div v-if="!server.online"><span class="scanned">Last seen {{server.lastSeen}} ago</span><br /></div>
+            <span class="player-count">{{server.data.version.name}}</span><br />
+            <span class="player-count">Players: {{server.data.players.online}}/{{server.data.players.max}}</span><br />
+            <span v-if="server.data.modInfo != null" class="mod-count">Mods: {{server.data.modInfo.modList.length}}</span>
+        </div>
+
+        <div style="clear: both"></div>
     </div>
 </template>
 
@@ -21,6 +34,31 @@
             data: {
                 type: Object,
                 required: true
+            }
+        },
+        data() {
+            return {
+                server: this.data,
+                loading: false
+            }
+        },
+        methods: {
+            handleClick(event) {
+                // Relaod the current server data
+                if (!this.loading) {
+                    this.loading = true;
+
+                    fetch(`/api/v1/minecraft-servers/${this.server.id}/sync`)
+                        .then(function (response) {
+                            return response.json();
+                        })
+                        .then(this.handleServerData);
+                }
+            },
+            handleServerData(data) {
+                console.log(data);
+                this.server = data;
+                this.loading = false;
             }
         }
     }
