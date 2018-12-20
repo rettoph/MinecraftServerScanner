@@ -30,7 +30,7 @@ namespace MinecraftServerScanner.Client
 
         static void Main(string[] args)
         {
-            _baseUri = "http://35.227.76.174/api/v1";
+            _baseUri = "http://rettoph.io/api/v1";
             BatchPinger.Threads = args.Length == 0 ? 512 : Int32.Parse(args[0]);
 
             Stopwatch _sw = new Stopwatch();

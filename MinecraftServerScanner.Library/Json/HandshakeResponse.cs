@@ -18,5 +18,8 @@ namespace MinecraftServerScanner.Library.Json
 
         [JsonProperty(PropertyName = "modInfo")]
         public ModInfo ModInfo { get; set; }
+
+        [JsonProperty(PropertyName = "favicon")]
+        public String Icon { get; set; }
     }
 }

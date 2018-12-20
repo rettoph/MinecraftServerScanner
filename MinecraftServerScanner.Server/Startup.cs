@@ -10,6 +10,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.EntityFrameworkCore;
 using MinecraftServerScanner.Server;
+using Microsoft.AspNetCore.SpaServices.Webpack;
 
 namespace MinecraftServerScanner.Server
 {
@@ -47,6 +48,10 @@ namespace MinecraftServerScanner.Server
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
+                app.UseWebpackDevMiddleware(new WebpackDevMiddlewareOptions
+                {
+                    HotModuleReplacement = true,
+                });
             }
             else
             {
@@ -60,7 +65,7 @@ namespace MinecraftServerScanner.Server
             {
                 routes.MapRoute(
                     name: "default",
-                    template: "{controller=Home}/{action=Index}/{id?}");
+                    template: "{controller=MinecraftServer}/{action=Index}/{id?}");
             });
         }
     }
