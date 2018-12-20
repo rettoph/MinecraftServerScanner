@@ -34,7 +34,7 @@ namespace MinecraftServerScanner.Server
                 options.MinimumSameSitePolicy = SameSiteMode.None;
             });
 
-            services.AddHostedService<RescanHostedService>();
+            // services.AddHostedService<RescanHostedService>();
 
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
